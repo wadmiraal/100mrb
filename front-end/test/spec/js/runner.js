@@ -39,7 +39,7 @@ require.config({
     }
 });
 
-require([ 'underscore', 'jquery', 'jasmine-html' ], function( _, $, jasmine ) {
+require([], function() {
     'use strict';
 
     var jasmineEnv = jasmine.getEnv();
@@ -53,13 +53,11 @@ require([ 'underscore', 'jquery', 'jasmine-html' ], function( _, $, jasmine ) {
         return htmlReporter.specFilter( spec );
     };
 
-    var specs = [];
+    var specs = [
+        'spec/model/rating'
+    ];
 
-    specs.push('spec/model/rating');
-
-    $(function() {
-        require( specs, function() {
-            jasmineEnv.execute();
-        });
+    require( specs, function() {
+        jasmineEnv.execute();
     });
 });
