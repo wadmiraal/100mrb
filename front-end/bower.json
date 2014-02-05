@@ -1,5 +1,5 @@
 {
-  "name": "front-end",
+  "name": "mrb",
   "version": "0.0.0",
   "dependencies": {
     "jquery": "~1.9.0",
@@ -9,5 +9,8 @@
     "requirejs-text": "~2.0.5",
     "modernizr": "~2.6.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {
+    "backbone": "~1.1.0"
+  }
 }
