@@ -54,7 +54,8 @@ require([], function() {
     };
 
     var specs = [
-        'spec/model/rating'
+        'spec/model/rating',
+        'spec/collection/ratings'
     ];
 
     require( specs, function() {

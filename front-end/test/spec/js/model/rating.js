@@ -93,7 +93,7 @@ define([ 'app/model/rating' ], function( RatingModel ) {
             });
 
             it( 'should trigger error events as expected when failing validation', function() {
-
+                
             });
         });
     });
