@@ -11,7 +11,7 @@ define([ 'app/model/rating' ], function( RatingModel ) {
 
     describe( 'Rating model', function() {
 
-        describe( 'when loaded', function() {
+        describe( 'when loaded by RequireJS', function() {
             it( 'should exist', function() {
                 expect( RatingModel ).toBeDefined();
             });
@@ -23,6 +23,23 @@ define([ 'app/model/rating' ], function( RatingModel ) {
                     rating: 5
                 });
                 expect( rating.get( 'rating' ) ).toEqual( 5 );
+            });
+
+            it( 'should have its own url logic, different from the collection', function() {
+                var ratingNew = new RatingModel();
+                expect( ratingNew.url() ).toEqual( '/rating' );
+
+                var rating1 = new RatingModel({ id: 1 });
+                expect( rating1.url() ).toEqual( '/rating/1' );
+
+                var collectionStub = {
+                    url: '/ratings'
+                };
+                ratingNew.collection = collectionStub;
+                rating1.collection = collectionStub;
+
+                expect( ratingNew.url() ).toEqual( '/rating' );
+                expect( rating1.url() ).toEqual( '/rating/1' );
             });
         });
 
