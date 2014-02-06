@@ -39,7 +39,7 @@ define([ 'backbone' ], function( Backbone ) {
             }
         },
         validateRating: function( rating ) {
-            if ( rating < 0 || rating > 5 ) {
+            if ( rating === null || rating < 0 || rating > 5 ) {
                 return 'You can only give a rating between 0 and 5.';
             }
         },
