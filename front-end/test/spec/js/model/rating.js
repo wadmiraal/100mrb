@@ -44,7 +44,7 @@ define([ 'app/model/rating' ], function( RatingModel ) {
         });
 
         describe( 'when validated', function() {
-            it( 'should not accept a rating lesser then 0 or higher then 5', function() {
+            it( 'should not accept a rating lesser than 0 or higher than 5', function() {
                 var rating = new RatingModel({
                     rating: -1,
                     userId: 1,
