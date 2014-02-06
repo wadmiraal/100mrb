@@ -91,6 +91,10 @@ define([ 'app/model/rating' ], function( RatingModel ) {
                 rating.set('bookId', 2);
                 expect( rating.isValid() ).toBe( true );
             });
+
+            it( 'should trigger error events as expected when failing validation', function() {
+
+            });
         });
     });
 });
