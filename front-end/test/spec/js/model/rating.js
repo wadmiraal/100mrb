@@ -11,9 +11,9 @@ define([ 'app/model/rating' ], function( RatingModel ) {
 
     describe( 'Rating model', function() {
 
-        describe( 'When loaded', function() {
+        describe( 'when loaded', function() {
             it( 'should exist', function() {
-                expect(RatingModel).toBeDefined();
+                expect( RatingModel ).toBeDefined();
             });
         });
 
@@ -22,7 +22,57 @@ define([ 'app/model/rating' ], function( RatingModel ) {
                 var rating = new RatingModel({
                     rating: 5
                 });
-                expect(rating.get('rating')).toEqual(5);
+                expect( rating.get( 'rating' ) ).toEqual( 5 );
+            });
+        });
+
+        describe( 'when validated', function() {
+            it( 'should not accept a rating lesser then 0 or higher then 5', function() {
+                var rating = new RatingModel({
+                    rating: -1,
+                    userId: 1,
+                    bookId: 1
+                });
+                expect( rating.isValid() ).not.toBe( true );
+
+                rating.set( 'rating', 6 );
+                expect( rating.isValid() ).not.toBe( true );
+
+                rating.set( 'rating', 0 );
+                expect( rating.isValid() ).toBe( true );
+
+                rating.set( 'rating', 5 );
+                expect( rating.isValid() ).toBe( true );
+            });
+
+            it( 'should always require a userId', function() {
+                var rating = new RatingModel({
+                    rating: 1,
+                    userId: 0,
+                    bookId: 1
+                });
+                expect( rating.isValid() ).not.toBe( true );
+
+                rating.set( 'userId', null );
+                expect( rating.isValid() ).not.toBe( true );
+
+                rating.set('userId', 2);
+                expect( rating.isValid() ).toBe( true );
+            });
+
+            it( 'should always require a bookId', function() {
+                var rating = new RatingModel({
+                    rating: 1,
+                    userId: 1,
+                    bookId: 0
+                });
+                expect( rating.isValid() ).not.toBe( true );
+
+                rating.set( 'bookId', null );
+                expect( rating.isValid() ).not.toBe( true );
+
+                rating.set('bookId', 2);
+                expect( rating.isValid() ).toBe( true );
             });
         });
     });
