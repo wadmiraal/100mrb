@@ -6,10 +6,10 @@
  * @license MIT
  */
 
-define([ 'jquery', 'underscore', 'backbone' ], function( $, _, Backbone ) {
+define( 'app/boilerplate', [ 'jquery', 'underscore', 'backbone' ], function( $, _, Backbone ) {
     'use strict';
 
     return {
-
+        init: 1
     };
 });
