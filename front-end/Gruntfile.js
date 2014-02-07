@@ -46,10 +46,10 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '<%= yeoman.app %>/*.html',
-                    '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                    '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}',
+                    '{.tmp,<%= yeoman.app %>}/sassets/css/{,*/}*.css',
+                    '{.tmp,<%= yeoman.app %>}/assets/js/{,*/}*.js',
+                    '<%= yeoman.app %>/assets/img/{,*/}*.{png,jpg,jpeg,gif,webp}',
+                    '<%= yeoman.app %>/assets/html/*.{ejs,mustache,hbs}',
                     'test/spec/**/*.js'
                 ]
             },
@@ -60,7 +60,7 @@ module.exports = function (grunt) {
                 tasks: ['jst']
             },
             test: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
+                files: ['<%= yeoman.app %>/assets/js/{,*/}*.js', 'test/spec/**/*.js', '!test/spec/js/runner.js'],
                 tasks: ['test:true']
             }
         },
@@ -123,23 +123,22 @@ module.exports = function (grunt) {
             },
             all: [
                 'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/{,*/}*.js',
-                '!<%= yeoman.app %>/scripts/vendor/*',
+                '<%= yeoman.app %>/assets/js/{,*/}*.js',
+                '!<%= yeoman.app %>/assets/js/vendor/*',
                 'test/spec/{,*/}*.js'
             ]
         },
         jasmine: {
             all:{
-                src : '/scripts/{,*/}*.js',
+                src : 'test/grunt-runner.js',
                 options: {
                     keepRunner: true,
-                    specs : 'test/spec/**/*.js',
+                    specs : [],
                     vendor : [
-                        '<%= yeoman.app %>/bower_components/jquery/jquery.js',
-                        '<%= yeoman.app %>/bower_components/underscore/underscore.js',
-                        '<%= yeoman.app %>/bower_components/backbone/backbone.js',
+                        '<%= yeoman.app %>/assets/components/requirejs/require.js',
                         '.tmp/scripts/templates.js'
-                    ]
+                    ],
+                    amd: true
                 }
             }
         },
@@ -169,13 +168,13 @@ module.exports = function (grunt) {
             dist: {
                 // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
                 options: {
-                    baseUrl: '<%= yeoman.app %>/scripts',
+                    baseUrl: '<%= yeoman.app %>/assets/js',
                     optimize: 'none',
                     paths: {
-                        'templates': '../../.tmp/scripts/templates',
-                        'jquery': '../../app/bower_components/jquery/jquery',
-                        'underscore': '../../app/bower_components/underscore/underscore',
-                        'backbone': '../../app/bower_components/backbone/backbone'
+                        'templates': '../../../.tmp/scripts/templates',
+                        'jquery': '../app/components/jquery/jquery',
+                        'underscore': '../app/components/underscore/underscore',
+                        'backbone': '../app/components/backbone/backbone'
                     },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
@@ -261,7 +260,7 @@ module.exports = function (grunt) {
         },
         bower: {
             all: {
-                rjsConfig: '<%= yeoman.app %>/scripts/main.js'
+                rjsConfig: '<%= yeoman.app %>/assets/js/main.js'
             }
         },
         jst: {
