@@ -16,8 +16,6 @@ require.config({
         jquery: 'components/jquery/jquery',
         underscore: 'components/underscore/underscore',
         backbone: 'components/backbone/backbone',
-        jasmine: '../../test/bower_components/jasmine/lib/jasmine-core/jasmine',
-        'jasmine-html': '../../test/bower_components/jasmine/lib/jasmine-core/jasmine-html',
         app: 'js',
         spec: '../../test/spec/js'
     },
@@ -28,13 +26,6 @@ require.config({
         backbone: {
             deps: [ 'underscore', 'jquery' ],
             exports: 'Backbone'
-        },
-        jasmine: {
-            exports: 'jasmine'
-        },
-        'jasmine-html': {
-            deps: [ 'jasmine' ],
-            exports: 'jasmine'
         }
     }
 });
