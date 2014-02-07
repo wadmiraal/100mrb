@@ -1,8 +1,10 @@
-node_modules
-dist
-test/temp
-.sass-cache
+node_modules/
+dist/
+test/temp/
+.sass-cache/
 app/assets/components
-.tmp
+.tmp/
 test/bower_components/
 .jshintrc
+.grunt/
+_SpecRunner.html
