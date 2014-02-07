@@ -1,5 +1,0 @@
-framework: jasmine
-test_page: test/index.html
-src_files:
-    - app/assets/components/**/*.js
-    - app/assets/js/**
