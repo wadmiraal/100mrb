@@ -40,20 +40,25 @@ define([ 'backbone' ], function( Backbone ) {
         },
         validateRating: function( rating ) {
             if ( rating === null || rating < 0 || rating > 5 ) {
-                return 'You can only give a rating between 0 and 5.';
+                return RatingModel.ERROR_RATING_INVALID;
             }
         },
         validateUserId: function( userId ) {
             if ( userId === null || userId === 0 ) {
-                return 'The rating must be linked to a user.';
+                return RatingModel.ERROR_NO_USER;
             }
         },
         validateBookId: function( bookId ) {
             if ( bookId === null || bookId === 0 ) {
-                return 'The rating must be linked to a book.';
+                return RatingModel.ERROR_NO_BOOK;
             }
         }
     });
+
+    // Save errors as constants for easier re-use.
+    RatingModel.ERROR_RATING_INVALID = 'You can only give a rating between 0 and 5.';
+    RatingModel.ERROR_NO_USER = 'The rating must be linked to a user.';
+    RatingModel.ERROR_NO_BOOK = 'The rating must be linked to a book.';
 
     return RatingModel;
 });
