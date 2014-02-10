@@ -92,17 +92,17 @@ define([ 'app/model/rating' ], function( RatingModel ) {
                 expect( rating.isValid() ).toBe( true );
             });
 
-            it( 'should trigger error events as expected when failing validation', function() {
-                var rating = new RatingModel();
+            it( 'should trigger error events when failing validation on save', function() {
+                var rating = new RatingModel({ rating: -1 });
                 var eventSpy = sinon.spy();
-                
-                rating.bind( 'error', eventSpy );
 
-                rating.save({ rating: -1, userId: 1, bookId: 1 });
+                rating.bind( 'error', eventSpy );
+                rating.save();
+
                 expect( eventSpy ).toHaveBeenCalledOnce();
                 expect( eventSpy ).toHaveBeenCalledWith(
                     rating,
-                    RatingModel.ERROR_RATING_INVALID
+                    [ RatingModel.ERROR_RATING_INVALID, RatingModel.ERROR_NO_USER, RatingModel.ERROR_NO_BOOK ]
                 );
             });
         });
