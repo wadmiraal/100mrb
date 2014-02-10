@@ -16,6 +16,7 @@ require.config({
         jquery: 'components/jquery/jquery',
         underscore: 'components/underscore/underscore',
         backbone: 'components/backbone/backbone',
+        'backbone-associations': 'components/backbone-associations/backbone-associations',
         app: 'js',
         spec: '../../test/spec/js'
     },
@@ -26,6 +27,10 @@ require.config({
         backbone: {
             deps: [ 'underscore', 'jquery' ],
             exports: 'Backbone'
+        },
+        'backbone-associations': {
+            deps: [ 'backbone' ],
+            exports: 'BackboneAssociations'
         }
     }
 });

@@ -8,10 +8,10 @@
  * @license MIT
  */
 
-define([ 'backbone' ], function( Backbone ) {
+define([ 'backbone', 'backbone-associations' ], function( Backbone, a ) {
     'use strict';
 
-    var RatingModel = Backbone.Model.extend({
+    var RatingModel = Backbone.AssociatedModel.extend({
         defaults: {
             rating: 0
         },

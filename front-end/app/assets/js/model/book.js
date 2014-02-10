@@ -8,10 +8,10 @@
  * @license MIT
  */
 
-define([ 'backbone' ], function( Backbone ) {
+define([ 'backbone', 'backbone-associations' ], function( Backbone, a ) {
     'use strict';
 
-    var BookModel = Backbone.Model.extend({
+    var BookModel = Backbone.AssociatedModel.extend({
         urlRoot: '/book'
     });
 
