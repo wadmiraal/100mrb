@@ -12,7 +12,7 @@ define([ 'backbone', 'app/model/rating' ], function( Backbone, RatingModel ) {
     'use strict';
 
     var RatingCollection = Backbone.Collection.extend({
-       // model: RatingModel,
+        model: RatingModel,
         initialize: function(models, options) {
             if ( options ) {
                 if ( options.bookId ) {
