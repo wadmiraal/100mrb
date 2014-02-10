@@ -1,6 +1,6 @@
 /**
  * @file
- * Rating model specs.
+ * Ratings collection specs.
  *
  * @author Wouter Admiraal <wad@wadmiraal.net>
  * @license MIT
