@@ -46,7 +46,8 @@ require([], function() {
 
     var specs = [
         'spec/model/rating',
-        'spec/collection/ratings'
+        'spec/collection/ratings',
+        'spec/model/book'
     ];
 
     require( specs, function() {
