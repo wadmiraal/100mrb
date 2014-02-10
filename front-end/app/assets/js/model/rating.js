@@ -16,6 +16,17 @@ define([ 'backbone' ], function( Backbone ) {
             rating: 0
         },
         urlRoot: '/rating',
+        save: function( key, val, options ) {
+            // @todo DRY code !! There must be a better way !
+            if ( !Backbone.Model.prototype.save.call( this, key, val, options ) ) {
+                var errors = this.validate({ 
+                    rating: this.get( 'rating' ),
+                    userId: this.get( 'userId' ),
+                    bookId: this.get( 'bookId' )
+                });
+                this.trigger( 'error', this, errors );
+            }
+        },
         validate: function( attributes ) {
             var errors = [];
 
@@ -35,7 +46,7 @@ define([ 'backbone' ], function( Backbone ) {
             }
 
             if ( errors.length ) {
-                return errors.join( '\n' );
+                return errors;
             }
         },
         validateRating: function( rating ) {
@@ -44,12 +55,12 @@ define([ 'backbone' ], function( Backbone ) {
             }
         },
         validateUserId: function( userId ) {
-            if ( userId === null || userId === 0 ) {
+            if ( !userId ) {
                 return RatingModel.ERROR_NO_USER;
             }
         },
         validateBookId: function( bookId ) {
-            if ( bookId === null || bookId === 0 ) {
+            if ( !bookId ) {
                 return RatingModel.ERROR_NO_BOOK;
             }
         }
