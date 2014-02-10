@@ -96,7 +96,7 @@ define([ 'app/model/rating' ], function( RatingModel ) {
                 var rating = new RatingModel({ rating: -1 });
                 var eventSpy = sinon.spy();
 
-                rating.bind( 'error', eventSpy );
+                rating.bind( 'error:validate', eventSpy );
                 rating.save();
 
                 expect( eventSpy ).toHaveBeenCalledOnce();

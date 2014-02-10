@@ -17,17 +17,12 @@ define([ 'backbone' ], function( Backbone ) {
         },
         urlRoot: '/rating',
         save: function( key, val, options ) {
-            // @todo DRY code !! There must be a better way !
             if ( !Backbone.Model.prototype.save.call( this, key, val, options ) ) {
-                var errors = this.validate({ 
-                    rating: this.get( 'rating' ),
-                    userId: this.get( 'userId' ),
-                    bookId: this.get( 'bookId' )
-                });
-                this.trigger( 'error', this, errors );
+                var errors = this.validate( this.attributes, options );
+                this.trigger( 'error:validate', this, errors );
             }
         },
-        validate: function( attributes ) {
+        validate: function( attributes, options ) {
             var errors = [];
 
             var ratingError = this.validateRating( attributes.rating );
