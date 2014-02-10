@@ -8,11 +8,16 @@
  * @license MIT
  */
 
-define([ 'backbone', 'backbone-associations' ], function( Backbone, a ) {
+define([ 'backbone', 'backbone-associations', 'app/collection/ratings' ], function( Backbone, a, RatingCollection ) {
     'use strict';
 
     var BookModel = Backbone.AssociatedModel.extend({
-        urlRoot: '/book'
+        urlRoot: '/book',
+        relations: [{
+            type: Backbone.Many,
+            key: 'bookId',
+            collectionType: RatingCollection
+        }]
     });
 
     return BookModel;
