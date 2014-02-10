@@ -16,12 +16,6 @@ define([ 'backbone' ], function( Backbone ) {
             rating: 0
         },
         urlRoot: '/rating',
-        save: function( key, val, options ) {
-            if ( !Backbone.Model.prototype.save.call( this, key, val, options ) ) {
-                var errors = this.validate( this.attributes, options );
-                this.trigger( 'error:validate', this, errors );
-            }
-        },
         validate: function( attributes, options ) {
             var errors = [];
 
