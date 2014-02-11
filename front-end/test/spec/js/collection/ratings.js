@@ -35,7 +35,7 @@ define([ 'app/collection/ratings' ], function( RatingCollection ) {
                     [
                         200,
                         { 'Content-Type': 'application/json' },
-                        '{ "response": "[ { rating: 1, userId: 1, bookId: 1 }, { rating: 2, userId: 2, bookId: 2 } ]" }'
+                        '[ { rating: 1, userId: 1, bookId: 1 }, { rating: 2, userId: 2, bookId: 2 } ]'
                     ]
                 );
                 server.respondWith(
@@ -44,7 +44,7 @@ define([ 'app/collection/ratings' ], function( RatingCollection ) {
                     [
                         200,
                         { 'Content-Type': 'application/json' },
-                        '{ "response": "[ { rating: 1, userId: 1, bookId: 1 }, { rating: 2, userId: 2, bookId: 2 } ]" }'
+                        '[ { rating: 1, userId: 1, bookId: 1 }, { rating: 2, userId: 2, bookId: 2 } ]'
                     ]
                 );
 

@@ -13,7 +13,7 @@ define([ 'backbone', 'app/model/rating' ], function( Backbone, RatingModel ) {
 
     var RatingCollection = Backbone.Collection.extend({
         model: RatingModel,
-        initialize: function(models, options) {
+        initialize: function( models, options ) {
             if ( options ) {
                 if ( options.bookId ) {
                     this.bookId = options.bookId;
