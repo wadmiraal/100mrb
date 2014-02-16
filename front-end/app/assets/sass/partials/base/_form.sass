@@ -1,0 +1,28 @@
+/**
+ * @file
+ * Form styles.
+ */
+
+ @import "compass"
+
+.form-element
+    margin: 1em 0
+    overflow: hidden
+    display: table-row
+
+    label
+        display: table-cell
+        vertical-align: middle
+        width: 17%
+
+    input[type="text"], input[type="password"]
+        display: table-cell
+        vertical-align: middle
+        width: 70%
+        max-width: 200px
+
+input[type="text"], input[type="password"], textarea, input[type="email"]
+    padding: .5em
+    border: 1px solid $asbestos
+    color: $clouds
+    //@include border-radius(5px)
