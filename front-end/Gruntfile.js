@@ -130,15 +130,14 @@ module.exports = function (grunt) {
         },
         jasmine: {
             all:{
-                src : 'test/grunt-runner.js',
+                src: 'app/assets/js/**/*.js',
                 options: {
-                    keepRunner: true,
-                    specs : [],
-                    vendor : [
-                        '<%= yeoman.app %>/assets/components/requirejs/require.js',
-                        '.tmp/scripts/templates.js'
-                    ],
-                    amd: true
+                    specs: 'test/spec/js/**/*.js',
+                    host: 'http://127.0.0.1:' + SERVER_PORT,
+                    template: require('grunt-template-jasmine-requirejs'),
+                    templateOptions: {
+                        requireConfigFile: 'test/runner.js'
+                    }
                 }
             }
         },
