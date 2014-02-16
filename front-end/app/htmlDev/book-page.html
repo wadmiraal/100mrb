@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="../assets/css/styles.css">
         <!-- endbuild -->
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="components/modernizr/modernizr.js"></script>
@@ -22,50 +22,56 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div id="main">
-            <header id="header">
-                <a id="home-link" href="/">100mrb</a>
+            <header id="header" class="main-section">
+                <div class="main-section-wrapper header-wrapper">
+                    <a id="home-link" href="/">100mrb</a>
 
-                <nav id="main-navigation">
-                    <ul>
-                        <li><a href="">book list</a></li>
-                        <li><a href="">login</a></li>
-                        <li><a href="">create account</a></li>
-                    </ul>
-                </nav>
+                    <nav id="main-navigation">
+                        <ul>
+                            <li><a href="">book list</a></li>
+                            <li><a href="">login</a></li>
+                            <li><a href="">create account</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </header>
 
-            <div id="page-content">
-                <div id="book-page">
-                    <div class="book-title-wrapper book-page-title-wrapper">
-                        <h1>Book title</h1>
-                        
-                        <div class="widget book-rating-widget book-page-rating-widget">
-                            *****
+            <div id="page-content" class="main-section">
+                <div class="main-section-wrapper page-content-wrapper">
+                    <div id="book-page">
+                        <div class="book-title-wrapper book-page-title-wrapper">
+                            <h1>Book title</h1>
+                            
+                            <div class="widget book-rating-widget book-page-rating-widget">
+                                *****
+                            </div>
+
+                            <div class="widget book-read-widget book-page-read-widget">
+                                <input type="checkbox">
+                            </div>
                         </div>
 
-                        <div class="widget book-read-widget book-page-read-widget">
-                            <input type="checkbox">
+                        <div class="book-content-wrapper book-page-content-wrapper">
+                            <img src="http://placehold.it/300x400" class="book-content-image book-page-content-image">
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sodales sodales ultrices. Nam nec mollis leo, ac pellentesque nulla. Duis at dictum diam, nec interdum magna. Suspendisse eu est aliquet, dictum odio eu, adipiscing massa. Duis bibendum urna ac justo dignissim feugiat vel non quam. Integer sodales nunc egestas pellentesque venenatis. Suspendisse ornare ullamcorper feugiat. Quisque at pellentesque mauris, vitae aliquam eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas eu purus tempus, aliquet dui in, placerat tortor. Phasellus sem elit, cursus vitae placerat eget, lobortis ut elit.</p>
+
+                            <p>Donec nec imperdiet ipsum. Vivamus aliquam eros ac pretium feugiat. Sed posuere eleifend justo, eu eleifend dolor iaculis in. Duis ipsum augue, posuere ac lectus non, tristique suscipit ligula. Nam rutrum justo eget accumsan porta. Fusce et libero sit amet libero lobortis vestibulum. Morbi placerat dui est, vitae convallis mi pulvinar ac. Donec sollicitudin nec tortor id rhoncus. Proin erat turpis, aliquam cursus elementum et, sodales sed magna.</p>
+
+                            <p>Aenean non convallis lacus. Integer vel urna metus. Phasellus in eros sed dui pellentesque tempor vel a augue. Duis at augue sed ipsum molestie gravida at euismod massa. Morbi convallis porta risus, ac suscipit nunc ornare non. Praesent scelerisque eu nisi id egestas. Mauris eget orci auctor, auctor nisi eu, luctus nulla. Aliquam leo mi, hendrerit eget porttitor in, elementum id eros. Morbi eget hendrerit tellus. Proin non augue massa. Integer pharetra facilisis aliquet. Phasellus gravida commodo sapien eget consequat.</p>
                         </div>
-                    </div>
 
-                    <div class="book-content-wrapper book-page-content-wrapper">
-                        <img src="http://placehold.it/200x350" class="book-content-image book-page-content-image">
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sodales sodales ultrices. Nam nec mollis leo, ac pellentesque nulla. Duis at dictum diam, nec interdum magna. Suspendisse eu est aliquet, dictum odio eu, adipiscing massa. Duis bibendum urna ac justo dignissim feugiat vel non quam. Integer sodales nunc egestas pellentesque venenatis. Suspendisse ornare ullamcorper feugiat. Quisque at pellentesque mauris, vitae aliquam eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas eu purus tempus, aliquet dui in, placerat tortor. Phasellus sem elit, cursus vitae placerat eget, lobortis ut elit.</p>
-
-                        <p>Donec nec imperdiet ipsum. Vivamus aliquam eros ac pretium feugiat. Sed posuere eleifend justo, eu eleifend dolor iaculis in. Duis ipsum augue, posuere ac lectus non, tristique suscipit ligula. Nam rutrum justo eget accumsan porta. Fusce et libero sit amet libero lobortis vestibulum. Morbi placerat dui est, vitae convallis mi pulvinar ac. Donec sollicitudin nec tortor id rhoncus. Proin erat turpis, aliquam cursus elementum et, sodales sed magna.</p>
-
-                        <p>Aenean non convallis lacus. Integer vel urna metus. Phasellus in eros sed dui pellentesque tempor vel a augue. Duis at augue sed ipsum molestie gravida at euismod massa. Morbi convallis porta risus, ac suscipit nunc ornare non. Praesent scelerisque eu nisi id egestas. Mauris eget orci auctor, auctor nisi eu, luctus nulla. Aliquam leo mi, hendrerit eget porttitor in, elementum id eros. Morbi eget hendrerit tellus. Proin non augue massa. Integer pharetra facilisis aliquet. Phasellus gravida commodo sapien eget consequat.</p>
-                    </div>
-
-                    <div class="book-comments-wrapper book-page-comments-wrapper">
-                        Comments...
+                        <div class="book-comments-wrapper book-page-comments-wrapper">
+                            Comments...
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <footer id="footer">
+            <footer id="footer" class="main-section-wrapper">
+                <div class="main-section-wrapper footer-wrapper">
 
+                </div>
             </footer>
         </div>
     </body>
