@@ -3,3 +3,37 @@
  * Ratings widget.
  */
 
+.book-rating-widget
+    position: relative
+    overflow: hidden
+    height: 100%
+
+    .widget-label
+        display: none
+
+    .rating-overlay
+        position: absolute
+        z-index: 100
+        left: 0
+        top: 0
+        width: 200px
+        height: 100%
+        overflow: hidden
+
+    .rating-span
+        background: $turquoise
+        height: 100%
+        width: 50%
+
+.book-page-rating-widget-with-user-rating-widget 
+
+    .book-rating-widget-user-rating
+        display: none
+
+.book-page-rating-widget-with-user-rating-widget:hover
+
+    .book-rating-widget-global-rating
+        display: none
+
+    .book-rating-widget-user-rating
+        display: block

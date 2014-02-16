@@ -32,8 +32,39 @@
                 display: block
                 padding: 0 1em
 
-.book-title-wrapper
+.book-page-title-wrapper
     overflow: hidden
+    padding: .5em 0
+    border-bottom: 2px solid $asbestos
+    margin-bottom: 1em
 
     h1 
         margin: 0
+        float: left
+
+    .book-page-rating-widget-wrapper
+        float: left
+        margin-left: 1em
+        padding-top: .5em
+        overflow: hidden
+        height: 2em
+        min-width: 200px
+
+    .book-page-read-widget
+        float: left
+        font-size: 2em
+        margin-right: .25em
+
+        input
+            margin-top: 1.5em
+            display: block
+
+.book-content-wrapper
+    overflow: hidden
+
+    p:first-of-type
+        margin-top: 0
+
+    .book-page-content-image
+        float: left
+        margin: 0 1em 1em 0
