@@ -3,10 +3,16 @@
  * General page styles.
  */
 
+@import "compass"
+
 #header, #footer
     padding: .25em
     background: $clouds
     font-size: .9em
+    @media screen and (max-width: $phone-breakpoint)
+        font-size: 1.1em
+        text-align: center
+        padding: .5em
 
     a
         text-decoration: none
@@ -17,8 +23,24 @@
 #footer
     text-align: center
 
+#main-navigation-toggle
+    display: none
+    background: $turquoise
+    color: white
+    width: 30px
+    height: 30px
+    float: right
+    cursor: pointer
+    @include border-radius(5px)
+    @media screen and (max-width: $phone-breakpoint)
+        display: block
+
 #main-navigation
     float: right
+    @media screen and (max-width: $phone-breakpoint)
+        float: none
+        display: none
+        text-align: center
 
     ul
         margin: 0
@@ -29,10 +51,19 @@
             margin: 0
             padding: 0
             float: left
+            @media screen and (max-width: $phone-breakpoint)
+                float: none
 
             a
                 display: block
                 padding: 0 1em
+                @media screen and (max-width: $phone-breakpoint)
+                    padding: 1em 0
+
+            a:hover
+                @media screen and (max-width: $phone-breakpoint)
+                    background: $turquoise
+                    color: white !important
 
         li:last-child
 
