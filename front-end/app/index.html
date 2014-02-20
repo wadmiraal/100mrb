@@ -10,9 +10,9 @@
         <meta name="description" content="100 Books everyone should read. Keep track of your reading and share with others.">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
         
-        <script src="components/modernizr/modernizr.js"></script>
+        <script src="assets/components/modernizr/modernizr.js"></script>
     </head>
     <body>
         <!--[if lt IE 9]>
@@ -48,6 +48,27 @@
             </footer>
         </div>
 
-        <script data-main="assets/js/main" src="components/requirejs/require.js"></script>
+        <script type="text/template" id="books-list-book">
+            <div class="book-title-wrapper books-list-title-wrapper">
+                <% if ( false ) { %>
+                <div class="widget book-read-widget books-list-read-widget">
+                    <input type="checkbox" title="Have you read this book ?">
+                </div>
+                <% } %>
+
+                <h3><a href="/book/<%= id %>"><%= title %></a></h3>
+                
+                <div class="book-rating-widget-wrapper books-list-rating-widget-wrapper">
+                    <div data-rating="<%= rating %>" class="widget book-rating-widget books-list-rating-widget book-rating-widget-global-rating">
+                        <span class="widget-label">Average rating</span>
+                        <div class="rating-overlay">
+                            <div class="rating-span"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script data-main="assets/js/main" src="assets/components/requirejs/require.js"></script>
     </body>
 </html>
