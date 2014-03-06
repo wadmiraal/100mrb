@@ -6,7 +6,7 @@
  * @license MIT
  */
 
-define( 'app/view/books', [ 'backbone', 'app/collection/books', 'app/view/book' ], function( Backbone, BookCollection, BookView ) {
+define( 'app/view/books', [ 'jquery', 'backbone', 'app/collection/books', 'app/view/book' ], function( $, Backbone, BookCollection, BookView ) {
     'use strict';
 
     var BooksView = Backbone.View.extend({
@@ -34,8 +34,8 @@ define( 'app/view/books', [ 'backbone', 'app/collection/books', 'app/view/book' 
 
             var that = this;
             this.collection.forEach( function( model ) {
-                var $element = $();
-                that.$el.append( that.tpl( model.toJSON() ) );
+                var $element = $( model.toJSON() );
+                that.$el.append( that.tpl( $element ) );
             });
         }
     });
