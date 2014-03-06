@@ -49,8 +49,17 @@
         </div>
 
         <script type="text/template" id="read-widget-template">
-            <div class="widget book-read-widget">
-                <input type="checkbox" title="Have you read this book ?" data-book-id="<%= bookId %>" data-user-id="<%= userId %>" <%= read ? 'checked="checked"' : '' %>>
+            <input type="checkbox" title="Have you read this book ?" data-book-id="<%= bookId %>" data-user-id="<%= userId %>" <%= read ? 'checked="checked"' : '' %>>
+        </script>
+
+        <script type="text/template" id="rating-widget-template">
+            <div class="book-rating-widget-container">
+                <div data-rating="<%= bookModel.get( 'rating' ) %>" class="widget book-rating-widget book-rating-widget-global-rating">
+                    <span class="widget-label">Average rating</span>
+                    <div class="rating-overlay">
+                        <div class="rating-span"></div>
+                    </div>
+                </div>
             </div>
         </script>
 
@@ -60,14 +69,7 @@
                 
                 <h3><a href="#/book/<%= id %>"><%= title %></a></h3>
                 
-                <div class="book-rating-widget-wrapper books-list-rating-widget-wrapper">
-                    <div data-rating="<%= rating %>" class="widget book-rating-widget books-list-rating-widget book-rating-widget-global-rating">
-                        <span class="widget-label">Average rating</span>
-                        <div class="rating-overlay">
-                            <div class="rating-span"></div>
-                        </div>
-                    </div>
-                </div>
+                <div class="book-rating-widget-wrapper books-list-rating-widget-wrapper"></div>
             </div>
         </script>
 

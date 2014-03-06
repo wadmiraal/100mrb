@@ -6,7 +6,12 @@
  * @license MIT
  */
 
-define( 'app/view/book', [ 'jquery', 'underscore', 'backbone', 'app/model/book' ], function( $, _ , Backbone, BookModel ) {
+define( 'app/view/book', [
+        'jquery',
+        'underscore',
+        'backbone',
+        'app/model/book'
+    ], function( $, _ , Backbone, BookModel ) {
     'use strict';
 
     var BookView = Backbone.View.extend({
