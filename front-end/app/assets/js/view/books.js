@@ -11,9 +11,7 @@ define( 'app/view/books', [ 'jquery', 'backbone', 'app/collection/books', 'app/v
 
     var BooksView = Backbone.View.extend({
         id: 'books-list',
-
         tpl: _.template( $( '#books-list-book-template' ).html() ),
-
         initialize: function() {
             if ( !this.collection ) {
                 this.collection = new BookCollection();

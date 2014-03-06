@@ -11,9 +11,7 @@ define( 'app/view/book', [ 'jquery', 'underscore', 'backbone', 'app/model/book' 
 
     var BookView = Backbone.View.extend({
         id: 'book-page',
-
         tpl: _.template( $( '#book-template' ).html() ),
-
         initialize: function() {
             if ( !this.model ) {
                 this.model = new BookModel();
@@ -28,7 +26,6 @@ define( 'app/view/book', [ 'jquery', 'underscore', 'backbone', 'app/model/book' 
                     that.remove();
                 });
         },
-
         render: function() {
             if ( this.model.get( 'title' ) ) {
                 var variables = this.model.toJSON();
