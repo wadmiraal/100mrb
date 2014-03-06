@@ -9,7 +9,7 @@
  // RequireJS configuration.
 require.config({
     baseUrl: 'assets/',
-    urlArgs: 'v=1.0.0',
+    urlArgs: 'v=1.0.0' + Math.random(),
     paths: {
         jquery: 'components/jquery/jquery',
         underscore: 'components/underscore/underscore',
@@ -35,6 +35,10 @@ require.config({
 // Require the application, and start it.
 require([ 'app/app' ], function( App ) {
     'use strict';
+
+    $.ajaxPrefilter( function( options ) {
+        options.url = '/_fixture' + options.url;
+    });
 
     App.initialize();
 });
