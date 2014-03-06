@@ -30,8 +30,11 @@ define( 'app/view/book', [ 'jquery', 'underscore', 'backbone', 'app/model/book' 
         },
 
         render: function() {
-            console.log('rerender')
-            this.$el.html( this.tpl( this.model.toJSON() ) );
+            if ( this.model.get( 'title' ) ) {
+                this.$el.html( this.tpl( this.model.toJSON() ) );
+            } else {
+                this.$el.html( '' );
+            }
         }
     });
 

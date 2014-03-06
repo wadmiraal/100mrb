@@ -9,10 +9,11 @@
 define( 'app/app', [ 
     'backbone',
     'app/router/router',
+    'app/model/book',
     'app/collection/books',
     'app/view/books',
-    'app/model/book'
-], function( Backbone, Router, BookCollection, BooksView, BookModel ) {
+    'app/view/book'
+], function( Backbone, Router, BookModel, BookCollection, BooksView, BookView ) {
     'use strict';
 
     return {
@@ -21,27 +22,34 @@ define( 'app/app', [
 
             var router = new Router();
             
-            var book = new BookModel({title: 'asd', id: 6, rating: 0});
-            var bookCollection = new BookCollection([
-                book,
-                { title: 'hi', id: 1, rating: 4 },
-                { title: 'you', id: 2, rating: 3 }
-            ]);
+            var bookCollection = new BookCollection();
+            bookCollection.fetch();
 
-            router.on('route:home', function() {
-                        //book.set({rating: 5});
-                console.log(book)
+            router.on( 'route:home', function() {
+                // Get the books view and pass it the collection.
                 var booksView = new BooksView({ collection: bookCollection });
+
+                // Render and append to the DOM.
                 booksView.render();
                 contentWrapper.html( booksView.$el );
-                setTimeout(function() {
-                    console.log('add')
-                    bookCollection.add([{title: 'asd', id: 3, rating: 0}])
+            });
 
-                    setTimeout(function() {
-                        bookCollection.remove([{title: 'asd', id: 3, rating: 0}])
-                    }, 1000)
-                }, 1000)
+            router.on( 'route:book', function( id ) {
+                // Try getting the book from the collection first.
+                var book = bookCollection.get(id);
+
+                // If it's not set, create it.
+                if ( !book ) {
+                    book = new BookModel({ id: id });
+                    book.fetch();
+                }
+
+                // Initiate the view.
+                var bookView = new BookView({ model: book });
+
+                // Render it and append to the DOM.
+                bookView.render();
+                contentWrapper.html( bookView.$el );
             });
 
             Backbone.history.start();
