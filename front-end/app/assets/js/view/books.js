@@ -11,6 +11,9 @@ define( 'app/view/books', [ 'backbone', 'app/collection/books', 'app/view/book' 
 
     var BooksView = Backbone.View.extend({
         id: 'books-list',
+
+        tpl: _.template( $( '#books-list-book-template' ).html() ),
+
         initialize: function() {
             if ( !this.collection ) {
                 this.collection = new BookCollection();
@@ -30,10 +33,9 @@ define( 'app/view/books', [ 'backbone', 'app/collection/books', 'app/view/book' 
             this.$el.empty();
 
             var that = this;
-            this.collection.forEach(function( model ) {
-                var bookView = new BookView({ model: model });
-                bookView.render();
-                that.$el.append( bookView.$el );
+            this.collection.forEach( function( model ) {
+                var $element = $();
+                that.$el.append( that.tpl( model.toJSON() ) );
             });
         }
     });

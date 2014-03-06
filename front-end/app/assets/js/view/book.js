@@ -10,9 +10,9 @@ define( 'app/view/book', [ 'jquery', 'underscore', 'backbone', 'app/model/book' 
     'use strict';
 
     var BookView = Backbone.View.extend({
-        'class': 'books-list-book',
+        id: 'book-page',
 
-        tpl: _.template( $( '#books-list-book' ).html() ),
+        tpl: _.template( $( '#book-template' ).html() ),
 
         initialize: function() {
             if ( !this.model ) {
@@ -31,7 +31,12 @@ define( 'app/view/book', [ 'jquery', 'underscore', 'backbone', 'app/model/book' 
 
         render: function() {
             if ( this.model.get( 'title' ) ) {
-                this.$el.html( this.tpl( this.model.toJSON() ) );
+                var variables = this.model.toJSON();
+
+                // @todo
+                variables.readWidget = '';
+
+                this.$el.html( this.tpl( variables ) );
             } else {
                 this.$el.html( '' );
             }

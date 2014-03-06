@@ -40,5 +40,9 @@ require([ 'app/app' ], function( App ) {
         options.url = '/_fixture' + options.url;
     });
 
+    window.globals = {
+        loggedIn: true
+    };
+
     App.initialize();
 });
