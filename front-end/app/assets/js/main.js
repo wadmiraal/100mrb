@@ -33,8 +33,10 @@ require.config({
 });
 
 // Require the application, and start it.
-require([ 'app/app' ], function( App ) {
+require([ 'app/app', 'app/global-data' ], function( App, globals ) {
     'use strict';
+
+    globals.set( 'userId', 1 );
 
     $.ajaxPrefilter( function( options ) {
         options.url = '/_fixture' + options.url;
