@@ -40,7 +40,7 @@ define( 'app/view/books', [
             this.collection.forEach( function( model ) {
                 var $element = $( '<div class="books-list-book" />' );
                 $element.append( that.tpl( model.toJSON() ) );
-                $element.find('.book-rating-widget-wrapper').ratingWidget({ userId: 9, bookId: 2 });
+                $element.find('.book-rating-widget-wrapper').ratingWidget({ bookModel: model });
                 that.$el.append( $element );
             });
         }

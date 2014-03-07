@@ -10,10 +10,11 @@
 
 define( 'app/widget/rating', [
         'jquery',
+        'app/global-data',
         'app/model/rating',
         'app/model/book',
         'app/view/rating-widget'
-    ], function( $, RatingModel, BookModel, RatingWidgetView ) {
+    ], function( $, globals, RatingModel, BookModel, RatingWidgetView ) {
     'use strict';
 
     $.fn.ratingWidget = function( settings ) {
@@ -22,16 +23,21 @@ define( 'app/widget/rating', [
         if ( settings.bookModel === undefined ) {
             if ( settings.bookId !== undefined ) {
                 settings.bookModel = new BookModel({ id: settings.bookId });
+                settings.bookModel.fetch();
             } else {
                 throw new Error( 'The rating widget requires a BookModel or a book ID.' );
             }
         }
 
         if ( settings.ratingModel === undefined ) {
-            if ( settings.userId !== undefined && settings.bookId !== undefined ) {
+            var userId = settings.userId !== undefined ? settings.userId :
+                            ( globals.get( 'userId' ) !== null ? globals.get( 'userId' ) : undefined );
+            var bookId = settings.bookId !== undefined ? settings.bookId : settings.bookModel.get( 'id' );
+            
+            if ( userId !== undefined && bookId !== undefined ) {
                 settings.ratingModel = new RatingModel({
-                    userId: settings.userId,
-                    bookId: settings.bookId
+                    userId: userId,
+                    bookId: bookId
                 });
             }
         }
