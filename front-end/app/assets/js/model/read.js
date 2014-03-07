@@ -10,6 +10,7 @@ define( 'app/model/read', [ 'backbone' ], function( Backbone ) {
     'use strict';
 
     var ReadModel = Backbone.Model.extend({
+        urlRoot: '/read',
         default: {
             read: 0
         }

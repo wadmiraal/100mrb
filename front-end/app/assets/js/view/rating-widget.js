@@ -16,7 +16,7 @@ define( 'app/view/rating-widget', [
     'use strict';
 
     var RatingWidgetView = Backbone.View.extend({
-        'class': 'book-read-widget',
+        'class': 'book-rating-widget',
         tpl: _.template( $( '#rating-widget-template' ).html() ),
         events: {
             'click .rating-overlay': 'rate', // @todo only for user rating widget  

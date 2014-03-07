@@ -11,8 +11,9 @@ define( 'app/view/books', [
         'backbone',
         'app/collection/books',
         'app/view/book',
-        'app/widget/rating'
-    ], function( $, Backbone, BookCollection, BookView, a ) {
+        'app/widget/rating',
+        'app/widget/read'
+    ], function( $, Backbone, BookCollection, BookView, a, b ) {
     'use strict';
 
     var BooksView = Backbone.View.extend({
@@ -41,6 +42,7 @@ define( 'app/view/books', [
                 var $element = $( '<div class="books-list-book" />' );
                 $element.append( that.tpl( model.toJSON() ) );
                 $element.find('.book-rating-widget-wrapper').ratingWidget({ bookModel: model });
+                $element.find('.book-read-widget-wrapper').readWidget({ bookModel: model });
                 that.$el.append( $element );
             });
         }
