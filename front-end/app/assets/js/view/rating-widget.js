@@ -30,7 +30,7 @@ define( 'app/view/rating-widget', [
 
             var userId = options.userId !== undefined ? options.userId :
                             ( globals.get( 'userId' ) !== null ? globals.get( 'userId' ) : undefined );
-            console.log(options)
+
             if ( userId !== undefined ) {
                 this.ratingModel = new RatingModel({
                     userId: userId,
