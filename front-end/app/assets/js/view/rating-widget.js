@@ -6,7 +6,13 @@
  * @license MIT
  */
 
-define( 'app/view/rating-widget', [ 'jquery', 'underscore', 'backbone', 'app/model/rating' ], function( $, _, Backbone, RatingModel ) {
+define( 'app/view/rating-widget', [
+        'jquery',
+        'underscore',
+        'backbone',
+        'app/global-data',
+        'app/model/rating'
+    ], function( $, _, Backbone, globals, RatingModel ) {
     'use strict';
 
     var RatingWidgetView = Backbone.View.extend({
@@ -22,9 +28,12 @@ define( 'app/view/rating-widget', [ 'jquery', 'underscore', 'backbone', 'app/mod
                 throw new Error( 'A BookModel instance must be provided to the RatingWidgetView.' );
             }
 
-            if ( options.userId !== undefined ) {
+            var userId = options.userId !== undefined ? options.userId :
+                            ( globals.get( 'userId' ) !== null ? globals.get( 'userId' ) : undefined );
+            console.log(options)
+            if ( userId !== undefined ) {
                 this.ratingModel = new RatingModel({
-                    userId: options.userId,
+                    userId: userId,
                     bookId: this.model.get( 'id' )
                 });
                 this.ratingModel.fetch();
@@ -52,7 +61,9 @@ define( 'app/view/rating-widget', [ 'jquery', 'underscore', 'backbone', 'app/mod
         rate: function( e ) {
             var perc = this.moveSpan( e );
             var $widget = this.$el.find( '.book-rating-widget' );
-            $widget.data( 'rating', this.getRatingInRange( perc ) );
+            var rating = this.getRatingInRange( perc );
+            $widget.data( 'rating', rating );
+            this.ratingModel.set( 'rating', rating ).save();
         },
         mouseOver: function( e ) {
             this.moveSpan( e );
