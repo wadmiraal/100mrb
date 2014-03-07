@@ -50,6 +50,7 @@ require([], function() {
     };
 
     var specs = [
+        'spec/global-data',
         'spec/model/rating',
         'spec/collection/ratings',
         'spec/model/book',
