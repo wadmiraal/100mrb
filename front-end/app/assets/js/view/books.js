@@ -41,8 +41,14 @@ define( 'app/view/books', [
             this.collection.forEach( function( model ) {
                 var $element = $( '<div class="books-list-book" />' );
                 $element.append( that.tpl( model.toJSON() ) );
-                $element.find('.book-rating-widget-wrapper').ratingWidget({ bookModel: model });
-                $element.find('.book-read-widget-wrapper').readWidget({ bookModel: model });
+                $element.find( '.book-rating-widget-wrapper' ).ratingWidget({ bookModel: model });
+                $element.find( '.book-read-widget-wrapper' ).readWidget({ bookModel: model });
+                var $readInput = $element.find( '.book-read-widget-wrapper input' );
+                $readInput.click( function() {
+                    console.log($readInput.is( ':checked' ))
+                    $element.removeClass('books-list-book-read')
+                });
+                $element.toggleClass( 'books-list-book-read', $readInput.is( ':checked' ) );
                 that.$el.append( $element );
             });
         }

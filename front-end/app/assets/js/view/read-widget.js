@@ -19,7 +19,7 @@ define( 'app/view/read-widget', [
         'class': 'book-read-widget',
         tpl: _.template( $( '#read-widget-template' ).html() ),
         events: {
-            // @todo
+            'click input[type="checkbox"]': 'flag'
         },
         initialize: function( options ) {
             if ( this.model === undefined ) {
@@ -57,6 +57,10 @@ define( 'app/view/read-widget', [
         render: function() {
             this.$el.empty();
             this.$el.html( this.tpl( { bookModel: this.model, readModel: this.readModel } ) );
+        },
+        flag: function() {
+            this.readModel.set( 'read', this.$el.find( 'input[type="checkbox"]' ).is( ':checked' ) );
+            this.readModel.save();
         }
     });
 
