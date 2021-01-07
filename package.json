@@ -1,0 +1,34 @@
+{
+  "name": "100mrb",
+  "version": "1.0.0",
+  "description": "100 Must Read Books ===================",
+  "main": "js/app.js",
+  "scripts": {
+    "build:init": "mkdir -p dist/css/ dist/js/",
+    "build:html": "npm run build:init && ejs ./index.ejs -f data/books.json -o dist/index.tmp.html && htmlmin -o dist/index.html dist/index.tmp.html && rm dist/index.tmp.html",
+    "build:css": "npm run build:init && cleancss css/styles.css -o dist/css/styles.css",
+    "build:js": "npm run build:init && terser js/app.js -o dist/js/app.js",
+    "build:clean": "rm -rf dist/",
+    "build": "npm run build:clean && npm run build:css && npm run build:js && npm run build:html",
+    "dev": "npm run build && serve dist/",
+    "test": "mocha --extension test.js --recursive js/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wadmiraal/100mrb.git"
+  },
+  "author": "Wouter Admiraal <wad@wadmiraal.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wadmiraal/100mrb/issues"
+  },
+  "homepage": "https://github.com/wadmiraal/100mrb#readme",
+  "devDependencies": {
+    "clean-css-cli": "^4.3.0",
+    "ejs": "^3.1.5",
+    "html-minifier-cli": "^0.1.0",
+    "mocha": "^8.2.1",
+    "serve": "^11.3.2",
+    "terser": "^5.5.1"
+  }
+}

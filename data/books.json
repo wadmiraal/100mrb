@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Some title",
+      "description": "Some description comes here",
+      "link": "http://example.com"
+    },
+    {
+      "id": 2,
+      "title": "Some title",
+      "description": "Some description comes here",
+      "link": "http://example.com"
+    }
+  ]
+}
