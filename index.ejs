@@ -10,15 +10,24 @@
   </head>
   <body>
     <div id="main">
-      <h1>100 Must Read Books</h1>
+      <div class="top">
+        <h1>100 Must Read Books</h1>
 
-      <ul class="books">
+        <label class="toggle-read">
+          <input type="checkbox" id="show-unread-only" />Only show unread books
+        </label>
+      </div>
+
+      <ul class="books" id="books">
         <% books.forEach(function(book) { %>
         <li class="book" id="book-<%= book.id %>">
           <input type="checkbox" aria-label="Have you read this book?" title="Have you read this book?" />
-          <h2><%= book.title %></h2>
-          <div class="book__description"><%= book.description %></div>
-          Rating...
+          <img class="book__image" src="<%= book.cover %>" alt="Book cover for <%= book.title %>" />
+          <div class="book__info">
+            <h2 class="book__title"><%= book.title %></h2>
+            <p class="book__author">By <%= book.author %></p>
+            <div class="book__description"><%= book.description %></div>
+          </div>
         </li>
         <% }); %>
       </ul>
