@@ -29,6 +29,6 @@
     "html-minifier-cli": "^0.1.0",
     "mocha": "^8.2.1",
     "serve": "^11.3.2",
-    "terser": "^5.5.1"
+    "terser": "^5.14.2"
   }
 }
